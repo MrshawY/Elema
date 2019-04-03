@@ -11,13 +11,13 @@
 }
 .linkdiv div{
     flex-grow: 1;
-    height: 2.5rem;
-    font-size: 1rem;
-    line-height: 2.5rem;
-    text-align: center
+    height: 1rem;
+    font-size: .4rem;
+    line-height: 1rem;
+    text-align: center;
 }
  .router-link-active{
-  background-color: aqua
+  background-color:#f1f1f1
 }
 </style>
 <script>

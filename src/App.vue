@@ -10,6 +10,6 @@ export default {
   name: 'App'
 }
 </script>
-
+import '../src/common/js/base'
 <style>
 </style>
