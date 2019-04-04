@@ -2,7 +2,7 @@
   <div class="contentone">
     <div class="tag-li">
       <ul>
-        <li tag="div" class="tag-titles" v-for="(item, index) in tpypeList" :class="isactive == index ? 'tocolor' : ''" @click="tocolor(index)" :key="item.id">
+        <li tag="div" class="tag-titles" v-for="(item, index) in typeList" :class="isactive == index ? 'tocolor' : ''" @click="tocolor(index)" :key="item.id">
           <span>
             {{item.title}}
           </span>
@@ -10,22 +10,28 @@
       </ul>
     </div>
     <div class="li-content">
-      <div class="content-box">
-        <div class="content-title">
-          <div>单人特色套餐</div>
-        </div>
-        <div class="content-txt">
-          <img src="//fuss10.elemecdn.com/d/9a/9f78bbaa060a54d411d71f1d47081jpeg.jpeg?imageMogr/format/webp/thumbnail/240x/">
-          <div class="title-txt">
-            <p>皮蛋瘦肉粥配包子套餐</p>
-            <p>咸粥</p>
-            <p>月售1132份,好频率100%</p>
-            <span class="money">￥</span><span class="price">24</span><span class="oldprice">￥28</span>
-          </div>
-          <div class="computer">
-          <div class="jianNum">-</div>
-          <div>1</div>
-          <div class="addNum">+</div>
+      <div class="wrapper" ref="container">
+        <div>
+          <div class="content-box" v-for="(item, index) in typegoods" :key="item.id" :ref="index">
+            <div class="content-title">
+              <div>{{item.titel}}</div>
+            </div>
+            <div class="content-txt" v-for="good in item.goodslist" :key="good.id" >
+              <img src="../../../../resource/img/xlx.jpg">
+              <div class="title-txt">
+                <p>{{good.goodstitle}}</p>
+                <p>{{good.abb}}</p>
+                <p>月售{{good.sellnum}}份,好频率100%</p>
+                <span class="money">￥</span><span class="price">{{good.price}}</span><span class="oldprice">{{good.oldprice}}</span>
+              </div>
+              <div class="computer">
+                <div class="addNum" @click="addNums">+</div>
+                <div class="num">{{nums}}</div>
+                <transition>
+                  <div class="jianNum" @click="jianNums" v-show="ishidden">-</div>
+                </transition>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -33,6 +39,17 @@
   </div>
 </template>
 <style scoped>
+/* 过度动画 */
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
+}
+.v-enter-active,
+.v-leave-active {
+  transition: all 1s;
+}
+/*  */
 .contentone {
   display: flex;
   /* flex-flow:row; */
@@ -61,10 +78,6 @@
 .tag-titles:last-of-type {
   border-bottom: 0px;
 }
-/* .tag-titles:nth-of-type(2) span {
-  margin-top: 1rem;
-  padding-bottom: 0.5rem;
-} */
 .tag-li {
   width: 1.5rem;
   height: 8rem;
@@ -76,8 +89,13 @@
 }
 .li-content {
   background-color: white;
-
+  height: 8rem;
+  overflow-y: auto;
   flex: 1 1 auto;
+  position: relative;
+}
+.li-content::-webkit-scrollbar {
+  display: none;
 }
 /* 右边的内容 */
 .content-title {
@@ -94,8 +112,18 @@
 .content-txt {
   width: 100%;
   height: 2.3rem;
-  background-color: yellow;
+  background-color: white;
   position: relative;
+}
+.content-txt:before {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  bottom: 0;
+  right: 0;
+  width: 5.6rem;
+  height: 1px;
+  background-color: #dcdcdc;
 }
 .content-txt img {
   width: 1.2rem;
@@ -109,48 +137,83 @@
   top: 0.3rem;
   left: 1.7rem;
   color: #c1b1b1;
-  line-height: .4rem
+  line-height: 0.4rem;
 }
-.title-txt p:first-of-type{
+.title-txt p:first-of-type {
   font-size: 0.35rem;
   color: black;
 }
-.title-txt .money{
-  font-size: .25rem;
-  color: red
+.title-txt .money {
+  font-size: 0.25rem;
+  color: red;
 }
-.title-txt .price{
-  font-size: .35rem;
-  color: red
+.title-txt .price {
+  font-size: 0.35rem;
+  color: red;
 }
-.title-txt .oldprice{
-  margin-left: .25rem;
- text-decoration: line-through
+.title-txt .oldprice {
+  margin-left: 0.25rem;
+  text-decoration: line-through;
 }
-.computer{
-  border: 1px solid black;
-  width: 2rem;
-  height: 1rem;
-  display: flex
+.computer {
+  width: 1.8rem;
+  height: 0.5rem;
+  position: absolute;
+  right: 0.2rem;
 }
-.computer .addNum{
+.addNum {
   border-radius: 50%;
-    width: .5rem;
-    height: .5rem;
-    background-color: blue;
-    color: white;
-    font-size: .5rem;
-    text-align: center;
-    line-height: .45rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #1371ce;
+  color: white;
+  font-size: 0.5rem;
+  text-align: center;
+  line-height: 0.45rem;
+  float: right;
+}
+.jianNum {
+  border-radius: 50%;
+  width: 0.42rem;
+  height: 0.42rem;
+  line-height: 0.3rem;
+  background-color: white;
+  border: 2px solid #1371ce;
+  color: #1371ce;
+  text-align: center;
+  float: right;
+  z-index: 99;
+}
+.num {
+  font-size: 0.5rem;
+  width: 0.8rem;
+  height: 0.5rem;
+  text-align: center;
+  float: right;
+}
+.active {
+  visibility: visible;
+}
+.wrapper {
+  position: absolute;
+  right: 0;
+  left: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
 }
 </style>
 <script>
+import BScroll from 'better-scroll'
 export default {
   data () {
     return {
-      istocolor: false,
+      istocolor: true,
       isactive: 0,
-      tpypeList: [{
+      nums: 0,
+      ishidden: false,
+      scroll: '',
+      typeList: [{
         id: '01',
         title: '热销榜'
       }, {
@@ -189,13 +252,195 @@ export default {
         id: '10',
         title: '其他'
       }
+      ],
+      typegoods: [
+        {
+          id: '01',
+          titel: '热销产品01',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              abb: '咸粥',
+              price: '24',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        },
+        {
+          id: '02',
+          titel: '单人特色套餐',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '人特色套餐01',
+              sellnum: '1123',
+              price: '24',
+              abb: '咸粥',
+              oldprice: '￥28',
+              goodsnums: '0'
+            },
+            {
+              id: '02',
+              goodstitle: '人特色套餐02',
+              sellnum: '1123',
+              price: '24',
+              oldprice: '￥28',
+              goodsnums: '0'
+            },
+            {
+              id: '03',
+              goodstitle: '人特色套餐03',
+              sellnum: '1123',
+              abb: '咸粥',
+              price: '24',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        },
+        {
+          id: '03',
+          titel: '特色粥品',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              price: '24',
+              abb: ' ',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        },
+        {
+          id: '04',
+          titel: '精选热菜',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              price: '24',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        },
+        {
+          id: '05',
+          titel: '爽口凉菜',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              price: '24',
+              abb: ' ',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        },
+        {
+          id: '06',
+          titel: '半成品',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              price: '24',
+              abb: ' ',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        }, {
+          id: '07',
+          titel: '饭类',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              abb: ' ',
+              price: '24',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        }, {
+          id: '08',
+          titel: '菜类',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              abb: ' ',
+              price: '24',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        }, {
+          id: '09',
+          titel: '面类',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              price: '24',
+              abb: ' ',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        }, {
+          id: '10',
+          titel: '其他',
+          goodslist: [
+            {
+              id: '01',
+              goodstitle: '皮蛋瘦肉粥配包子套餐',
+              sellnum: '1123',
+              price: '24',
+              abb: ' ',
+              oldprice: '￥28',
+              goodsnums: '0'
+            }
+          ]
+        }
       ]
     }
   },
   methods: {
     tocolor (index) {
       this.isactive = index
+      this.scroll.scrollToElement(this.$refs[index][0])
+    },
+    addNums () {
+      this.nums++
+      if (this.nums >= 0) {
+        this.ishidden = true
+      }
+    },
+    jianNums () {
+      this.nums--
+      if (this.nums <= 0) {
+        this.nums = 0
+        this.ishidden = false
+      }
     }
+  },
+  mounted () {
+    let container = this.$refs['container']
+    this.scroll = new BScroll(container,{click: true})
   }
 }
 </script>

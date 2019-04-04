@@ -17,7 +17,7 @@
     text-align: center;
 }
  .router-link-active{
-  background-color:#f1f1f1
+  color:red
 }
 </style>
 <script>

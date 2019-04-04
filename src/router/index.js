@@ -11,22 +11,25 @@ export default new Router({
     path: '/',
     name: 'home',
     component: home,
-    children: [{
-      path: '/',
-      name: 'one',
-      component: one
-    }, {
-      path: '/c1',
-      name: 'one',
-      component: one
-    }, {
-      path: '/c2',
-      name: 'two',
-      component: two
-    }, {
-      path: '/c3',
-      name: 'three',
-      component: three
-    }]
+    children: [
+      // {
+      //   path: '/',
+      //   name: 'one',
+      //   component: one
+      // }
+      {
+        path: '/c1',
+        name: 'one',
+        component: one
+      }, {
+        path: '/c2',
+        name: 'two',
+        component: two
+      }, {
+        path: '/c3',
+        name: 'three',
+        component: three
+      }
+    ]
   }]
 })
