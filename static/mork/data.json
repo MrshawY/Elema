@@ -1,0 +1,211 @@
+{
+  "data" :[{
+  "typeList": [
+    {
+    "id": "01",
+    "title": "热销榜"
+  },
+  {
+    "id": "02",
+    "title": "单人热销套餐"
+  },
+  {
+    "id": "03",
+    "title": "特色粥品"
+  },
+  {
+    "id": "04",
+    "title": "精选热菜"
+  },
+  {
+    "id": "05",
+    "title": "爽口凉菜"
+  },
+  {
+    "id": "06",
+    "title": "半成品"
+  },
+  {
+    "id": "07",
+    "title": "饭类"
+  },
+  {
+    "id": "08",
+    "title": "菜类"
+  },
+  {
+    "id": "09",
+    "title": "面类"
+  },
+  {
+    "id": "10",
+    "title": "其他"
+  }
+],
+  "typegoods": [
+    {
+      "id": "01",
+      "titel": "热销产品01",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "abb": "咸粥",
+          "price": "24",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "titel": "单人特色套餐",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "人特色套餐01",
+          "sellnum": "1123",
+          "price": "24",
+          "abb": "咸粥",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        },
+        {
+          "id": "02",
+          "goodslist": "人特色套餐02",
+          "sellnum": "1123",
+          "price": "24",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        },
+        {
+          "id": "03",
+          "goodslist": "人特色套餐03",
+          "sellnum": "1123",
+          "abb": "咸粥",
+          "price": "24",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "titel": "特色粥品",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "price": "24",
+          "abb": " ",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "titel": "精选热菜",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "price": "24",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "titel": "爽口凉菜",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "price": "24",
+          "abb": " ",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "titel": "半成品",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodstitle": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "price": "24",
+          "abb": " ",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    }, {
+      "id": "07",
+      "titel": "饭类",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "abb": " ",
+          "price": "24",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    }, {
+      "id": "08",
+      "titel": "菜类",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "abb": " ",
+          "price": "24",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    }, {
+      "id": "09",
+      "titel": "面类",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "price": "24",
+          "abb": " ",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    }, {
+      "id": "10",
+      "titel": "其他",
+      "goodslist": [
+        {
+          "id": "01",
+          "goodslist": "皮蛋瘦肉粥配包子套餐",
+          "sellnum": "1123",
+          "price": "24",
+          "abb": " ",
+          "oldprice": "￥28",
+          "goodsnums": "0"
+        }
+      ]
+    }
+  ]
+}
+  ]
+}
