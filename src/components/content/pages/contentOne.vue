@@ -17,7 +17,7 @@
               <div class="content-title">
                 <div>{{item.titel}}</div>
               </div>
-              <div class="content-txt" v-for="good in item.goodslist" :key="good.id">
+              <div class="content-txt" v-for="(good) in item.goodslist" :key="good.id">
                 <img src="../../../../resource/img/xlx.jpg">
                 <div class="title-txt">
                   <p>{{good.goodstitle}}</p>
@@ -26,11 +26,7 @@
                   <span class="money">￥</span><span class="price">{{good.price}}</span><span class="oldprice">{{good.oldprice}}</span>
                 </div>
                 <div class="computer">
-                  <div class="addNum" @click="addNums">+</div>
-                  <div class="num">{{nums}}</div>
-                  <transition>
-                    <div class="jianNum" @click="jianNums" v-show="ishidden">-</div>
-                  </transition>
+                  <cartcontrol :goodsnums="good.goodsnums"></cartcontrol>
                 </div>
               </div>
             </div>
@@ -38,86 +34,12 @@
         </div>
       </div>
       <div class="contentone-bottom">
-        <div class="shppingborder">
-          <div class="shppingicon">
-          </div>
-        </div>
-        <div class="bottom-money">
-          ￥100
-        </div>
-        <div class="bottom-text">
-          另需配送费￥4元
-        </div>
-        <div class="bottom-begin">
-          ￥20元起送
-        </div>
+        <shopcart></shopcart>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
-/*底部购物车页面*/
-.contentone-bottom {
-  width: 100%;
-  background-color: rgba(12, 2, 2, 0.8);
-  height: 1.3rem;
-  position: fixed;
-  bottom: 0;
-  display: flex;
-}
-.shppingborder {
-  width: 1.3rem;
-  height: 1.2rem;
-  background-color: rgba(12, 2, 2, 0.8);
-  border-radius: 50%;
-  margin-left: 0.2rem;
-  margin-top: -0.3rem;
-  overflow: hidden;
-}
-.shppingicon {
-  width: 1rem;
-  height: 1rem;
-  background-color: rgba(161, 148, 148, 0.5);
-  border-radius: 50%;
-  margin: 0.1rem;
-}
-.bottom-money {
-  font-size: 0.5rem;
-  width: 1.5rem;
-  height: 100%;
-  line-height: 1.2rem;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-}
-.bottom-text {
-  font-size: 0.25rem;
-  width: 2.5rem;
-  height: 100%;
-  line-height: 1.2rem;
-  color: white;
-  text-align: center;
-}
-.bottom-begin {
-  font-size: 0.3rem;
-  width: 2.5rem;
-  height: 100%;
-  line-height: 1.2rem;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-}
-/* 过度动画 */
-.v-enter,
-.v-leave-to {
-  opacity: 0;
-  transform: translateX(50px);
-}
-.v-enter-active,
-.v-leave-active {
-  transition: all 1s;
-}
-/*  */
 .contentone {
   display: flex;
   /* flex-flow:row; */
@@ -229,36 +151,6 @@
   position: absolute;
   right: 0.2rem;
 }
-.addNum {
-  border-radius: 50%;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: #1371ce;
-  color: white;
-  font-size: 0.5rem;
-  text-align: center;
-  line-height: 0.45rem;
-  float: right;
-}
-.jianNum {
-  border-radius: 50%;
-  width: 0.42rem;
-  height: 0.42rem;
-  line-height: 0.3rem;
-  background-color: white;
-  border: 2px solid #1371ce;
-  color: #1371ce;
-  text-align: center;
-  float: right;
-  z-index: 99;
-}
-.num {
-  font-size: 0.5rem;
-  width: 0.8rem;
-  height: 0.5rem;
-  text-align: center;
-  float: right;
-}
 .active {
   visibility: visible;
 }
@@ -269,38 +161,37 @@
   top: 0;
   bottom: 0;
 }
+/*底部购物车页面*/
+.contentone-bottom {
+  width: 100%;
+  background-color: rgba(12, 2, 2, 0.8);
+  height: 1.3rem;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+}
 </style>
 <script>
 import BScroll from 'better-scroll'
+import cartcontrol from './cartcontrol'
+import shopcart from './shopcart'
 export default {
   props: ['typegoods', 'typeList'],
   data () {
     return {
       istocolor: true,
       isactive: 0,
-      nums: 0,
-      ishidden: false,
       scroll: ''
     }
+  },
+  components: {
+    cartcontrol,
+    shopcart
   },
   methods: {
     tocolor (index) {
       this.isactive = index
-      console.log(this.$refs[index][0])
       this.scroll.scrollToElement(this.$refs[index][0])
-    },
-    addNums () {
-      this.nums++
-      if (this.nums >= 0) {
-        this.ishidden = true
-      }
-    },
-    jianNums () {
-      this.nums--
-      if (this.nums <= 0) {
-        this.nums = 0
-        this.ishidden = false
-      }
     }
   },
   mounted () {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="contenttow">
+    <div class="contenthree">
         商品详情页
       </div>
   </div>
