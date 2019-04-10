@@ -20,13 +20,13 @@
               <div class="content-txt" v-for="(good) in item.goodslist" :key="good.id">
                 <img src="../../../../resource/img/xlx.jpg">
                 <div class="title-txt">
-                  <p>{{good.goodstitle}}</p>
+                  <p>{{good.goodsname}}</p>
                   <p>{{good.abb}}</p>
                   <p>月售{{good.sellnum}}份,好频率100%</p>
                   <span class="money">￥</span><span class="price">{{good.price}}</span><span class="oldprice">{{good.oldprice}}</span>
                 </div>
                 <div class="computer">
-                  <cartcontrol :goodsnums="good.goodsnums"></cartcontrol>
+                  <cartcontrol :good="good" :goodnums="good.goodnums"></cartcontrol>
                 </div>
               </div>
             </div>
@@ -164,11 +164,9 @@
 /*底部购物车页面*/
 .contentone-bottom {
   width: 100%;
-  background-color: rgba(12, 2, 2, 0.8);
   height: 1.3rem;
   position: fixed;
   bottom: 0;
-  display: flex;
 }
 </style>
 <script>
@@ -195,7 +193,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$refs)
     let container = this.$refs['container']
     this.scroll = new BScroll(container, { click: true })// 让使用div包裹的地方能够点击
   }

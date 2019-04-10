@@ -1,30 +1,27 @@
 <template>
   <div>
-    <div class="addNum" @click="addNum()">+</div>
+    <div class="addNum" @click="addNum">+</div>
     <div class="num">{{nums}}</div>
     <transition>
-      <div class="jianNum" @click="jianNums()" v-show="nums > 0">-</div>
+      <div class="jianNum" @click="jianNum" v-show="nums > 0">-</div>
     </transition>
   </div>
 </template>
 <script>
 export default {
-  props: ['goodsnums'],
+  props: ['good', 'goodnums'],
   data () {
     return {
+      goods: this.good,
       nums: this.goodsnums
     }
   },
   methods: {
     addNum () {
-      this.nums++
+      this.$store.dispatch('addNum', { goods: this.goods })
     },
-    jianNums () {
-      if (this.nums <= 0) {
-        this.nums = 0
-      } else {
-        this.nums--
-      }
+    jianNum () {
+
     }
   }
 }
