@@ -26,7 +26,7 @@
                   <span class="money">￥</span><span class="price">{{good.price}}</span><span class="oldprice">{{good.oldprice}}</span>
                 </div>
                 <div class="computer">
-                  <cartcontrol :good="good" :goodnums="good.goodnums"></cartcontrol>
+                  <cartcontrol :good="good" :goodnums="good.goodsnums"></cartcontrol>
                 </div>
               </div>
             </div>
@@ -173,6 +173,7 @@
 import BScroll from 'better-scroll'
 import cartcontrol from './cartcontrol'
 import shopcart from './shopcart'
+import { mapState } from 'vuex'
 export default {
   props: ['typegoods', 'typeList'],
   data () {
@@ -181,6 +182,9 @@ export default {
       isactive: 0,
       scroll: ''
     }
+  },
+  computed: {
+    ...mapState(['cartgoods'])
   },
   components: {
     cartcontrol,

@@ -21,47 +21,58 @@
       </div>
     </div>
     <transition>
-      <div v-show="goodshow" :class="{goodlist:goodshow}">
-        <div class="goodlist">
-          <div class="goodlist-title">
-            <div class="goodschicked">
-              已选商品
-            </div>
-            <div class="goodsclear">
-              清空
-            </div>
+      <div class="goodlist" v-show="isshow && isshows">
+        <div class="goodlist-title">
+          <div class="goodschicked">
+            已选商品
           </div>
-          <ul class="bigul">
-            <li class="glist" v-for="n in cartgoods" :key="n.id">
-              <div class="gname">{{n.goods.goodsname}}</div>
-              <div class="gprice">￥{{n.goods.price}}</div>
-              <div class="gdo">
-                <cartcontrol></cartcontrol>
-              </div>
-            </li>
-          </ul>
+          <div class="goodspirce">
+            单价
+          </div>
+          <div class="goodsclear" @click="clearall">
+            清空
+          </div>
         </div>
+        <ul class="bigul">
+          <li class="glist" v-for="n in cartgoods" :key="n.goods.goodsname">
+            <div class="gname">{{n.goods.goodsname}}</div>
+            <div class="gprice">￥{{n.goods.price}}</div>
+            <div class="gdo">
+              <cartcontrol :good="n.goods" :goodnums="n.goods.goodsnums"></cartcontrol>
+            </div>
+          </li>
+        </ul>
       </div>
     </transition>
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 import cartcontrol from './cartcontrol'
 export default {
   data () {
     return {
       finaMoney: '0',
-      goodshow: false
+      isshows: true
     }
   },
   computed: {
-    ...mapState(['cartgoods'])
+    ...mapState(['cartgoods', 'isshow']),
+    ...mapGetters(['isshow'])
   },
   methods: {
+    ...mapActions(['clearall', 'addNum']),
     showgoods () {
-      this.goodshow = !this.goodshow
-      console.log(this.goodshow)
+      if (this.cartgoods.length < 0) {
+        alert('您的购物车没有商品')
+      } else {
+        this.cartgoods.forEach((itme, index) => {
+          console.log(index)
+          console.log(itme)
+        })
+        // console.log(this.cartgoods)
+        this.isshows = !this.isshows
+      }
     }
   },
   components: {
@@ -150,7 +161,7 @@ export default {
   width: 100%;
   background-color: aliceblue;
   position: absolute;
-  bottom: 0.65rem;
+  bottom: 1.3rem;
   z-index: 10;
 }
 .goodlist-title {
@@ -160,19 +171,18 @@ export default {
   border-bottom: 1px solid #666;
 }
 .goodschicked {
-  width: 6rem;
+  width: 4rem;
 }
 .goodsclear {
+  text-align: right;
   flex: 1 1 auto;
-  text-align: center;
 }
-.bigul{
+.bigul {
   max-height: 3rem;
-  overflow:auto
+  overflow: auto;
 }
 .glist {
   display: flex;
-  font-size: 0.25rem;
   padding: 0.05rem;
   text-align: center;
   height: 0.5rem;
@@ -180,10 +190,12 @@ export default {
   border-bottom: 1px solid #666;
 }
 .gname {
-  width: 5rem;
+  width: 4rem;
+  font-size: 0.25rem;
 }
 .gprice {
   flex: 1 1 auto;
+  font-size: 0.25rem;
 }
 .gdo {
   flex: 1 1 auto;

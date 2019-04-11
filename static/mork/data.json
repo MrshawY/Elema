@@ -45,11 +45,11 @@
   "typegoods": [
     {
       "id": "01",
-      "titel": "热销产品01",
+      "titel": "热销产品",
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "热销产品01",
           "sellnum": "1123",
           "abb": "咸粥",
           "price": "24",
@@ -64,7 +64,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "人特色套餐01",
+          "goodsname": "单人特色套餐01",
           "sellnum": "1123",
           "price": "24",
           "abb": "咸粥",
@@ -73,7 +73,7 @@
         },
         {
           "id": "02",
-          "goodsname": "人特色套餐02",
+          "goodsname": "单人特色套餐02",
           "sellnum": "1123",
           "price": "24",
           "oldprice": "￥28",
@@ -81,7 +81,7 @@
         },
         {
           "id": "03",
-          "goodsname": "人特色套餐03",
+          "goodsname": "单人特色套餐03",
           "sellnum": "1123",
           "abb": "咸粥",
           "price": "24",
@@ -96,7 +96,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "特色粥品01",
           "sellnum": "1123",
           "price": "24",
           "abb": " ",
@@ -111,7 +111,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "精选热菜01",
           "sellnum": "1123",
           "price": "24",
           "oldprice": "￥28",
@@ -125,7 +125,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "爽口凉菜01",
           "sellnum": "1123",
           "price": "24",
           "abb": " ",
@@ -140,7 +140,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "半成品01",
           "sellnum": "1123",
           "price": "24",
           "abb": " ",
@@ -154,7 +154,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "饭类01",
           "sellnum": "1123",
           "abb": " ",
           "price": "24",
@@ -168,7 +168,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "菜类01",
           "sellnum": "1123",
           "abb": " ",
           "price": "24",
@@ -182,7 +182,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "面类01",
           "sellnum": "1123",
           "price": "24",
           "abb": " ",
@@ -196,7 +196,7 @@
       "goodslist": [
         {
           "id": "01",
-          "goodsname": "皮蛋瘦肉粥配包子套餐",
+          "goodsname": "其他01",
           "sellnum": "1123",
           "price": "24",
           "abb": " ",

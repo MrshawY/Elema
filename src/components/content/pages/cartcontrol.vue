@@ -1,27 +1,32 @@
 <template>
   <div>
     <div class="addNum" @click="addNum">+</div>
-    <div class="num">{{nums}}</div>
+    <div class="num" v-show="goodnums > 0">{{goodnums}}</div>
     <transition>
-      <div class="jianNum" @click="jianNum" v-show="nums > 0">-</div>
+      <div class="jianNum" @click="jianNum" v-show="goodnums > 0">-</div>
     </transition>
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   props: ['good', 'goodnums'],
   data () {
     return {
-      goods: this.good,
-      nums: this.goodsnums
+      goods: this.good
     }
+  },
+  computed: {
+    ...mapState(['cartgoods'])
   },
   methods: {
     addNum () {
+      console.log(this.goods.goodsname)
       this.$store.dispatch('addNum', { goods: this.goods })
     },
     jianNum () {
-
+      console.log(this.goods)
+      this.$store.dispatch('jianNum', { goods: this.goods })
     }
   }
 }
