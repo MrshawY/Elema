@@ -6,16 +6,16 @@
           <div class="shppingicon">
           </div>
         </div>
-        <div class="bottom-money" :class="{addwidth:finaMoney > 0}">
-          ￥{{finaMoney}}
+        <div class="bottom-money" :class="{addwidth:allmoney > 0}">
+          ￥{{allmoney}}
         </div>
-        <div class="bottom-text" v-if="finaMoney <= 0">
+        <div class="bottom-text" v-if="allmoney <= 0">
           另需配送费￥4元
         </div>
-        <div class="bottom-begin" v-if="finaMoney <= 0">
+        <div class="bottom-begin" v-if="allmoney <= 0">
           ￥20元起送
         </div>
-        <div class="goaccount" v-if="finaMoney > 0">
+        <div class="goaccount" v-if="allmoney > 0" @click.stop="ok">
           去结算
         </div>
       </div>
@@ -33,15 +33,13 @@
             清空
           </div>
         </div>
-        <ul class="bigul">
-          <li class="glist" v-for="n in cartgoods" :key="n.goods.goodsname">
+        <div class="bigul">
+          <div class="glist" v-for="(n,i) in cartgoods" :key="i">
             <div class="gname">{{n.goods.goodsname}}</div>
             <div class="gprice">￥{{n.goods.price}}</div>
-            <div class="gdo">
-              <cartcontrol :good="n.goods" :goodnums="n.goods.goodsnums"></cartcontrol>
-            </div>
-          </li>
-        </ul>
+             <cartcontrol :good="n.goods" :goodnums="n.goods.goodsnums"></cartcontrol>
+          </div>
+        </div>
       </div>
     </transition>
   </div>
@@ -58,7 +56,7 @@ export default {
   },
   computed: {
     ...mapState(['cartgoods', 'isshow']),
-    ...mapGetters(['isshow'])
+    ...mapGetters(['isshow', 'allmoney'])
   },
   methods: {
     ...mapActions(['clearall', 'addNum']),
@@ -73,6 +71,9 @@ export default {
         // console.log(this.cartgoods)
         this.isshows = !this.isshows
       }
+    },
+    ok () {
+      alert('结算成功')
     }
   },
   components: {
@@ -82,6 +83,9 @@ export default {
 </script>
 
 <style scoped>
+.gobj {
+  font-size: 0.1rem;
+}
 .v-enter,
 .v-leave-to {
   opacity: 0;

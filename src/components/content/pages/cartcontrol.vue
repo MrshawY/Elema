@@ -1,37 +1,34 @@
 <template>
-  <div>
+  <div class="bigcomputer">
+    <transition>
+      <div class="jianNum" @click="jianNum" v-show="goodnums > 0">
+        <div>-</div>
+      </div>
+
+    </transition>
     <div class="addNum" @click="addNum">+</div>
     <div class="num" v-show="goodnums > 0">{{goodnums}}</div>
-    <transition>
-      <div class="jianNum" @click="jianNum" v-show="goodnums > 0">-</div>
-    </transition>
+
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
 export default {
   props: ['good', 'goodnums'],
-  data () {
-    return {
-      goods: this.good
-    }
-  },
-  computed: {
-    ...mapState(['cartgoods'])
-  },
   methods: {
     addNum () {
-      console.log(this.goods.goodsname)
-      this.$store.dispatch('addNum', { goods: this.goods })
+      this.$store.dispatch('addNum', { goods: this.good })
     },
     jianNum () {
-      console.log(this.goods)
-      this.$store.dispatch('jianNum', { goods: this.goods })
+      this.$store.dispatch('jianNum', { goods: this.good })
     }
   }
 }
 </script>
 <style scoped>
+.bigcomputer {
+  width: 1.8rem;
+  height: 0.5rem;
+}
 /* 过度动画 */
 .v-enter,
 .v-leave-to {
@@ -55,15 +52,23 @@ export default {
 }
 .jianNum {
   border-radius: 50%;
-  width: 0.42rem;
-  height: 0.42rem;
-  line-height: 0.3rem;
-  background-color: white;
-  border: 2px solid #1371ce;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #1371ce;
   color: #1371ce;
+  font-size: 0.5rem;
   text-align: center;
-  float: right;
-  z-index: 99;
+  line-height: 0.35rem;
+  float: left;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+ .jianNum div{
+  border-radius: 50%;
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: white
 }
 .num {
   font-size: 0.5rem;

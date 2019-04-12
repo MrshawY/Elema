@@ -12,12 +12,9 @@ export default {
       goods.goods.goodsnums++
       state.cartgoods.push(goods)
     }
-    console.log(state.cartgoods)
   },
   // 减少mutation
   jianNum (state, goods) {
-    console.log(goods)
-    console.log(state.cartgoods)
     state.cartgoods.forEach((itme, index) => {
       if (itme.goods.goodsname === goods.goods.goodsname) {
         itme.goods.goodsnums--
@@ -27,9 +24,11 @@ export default {
         }
       }
     })
-    console.log(state.cartgoods)
   },
   clearall (state) {
+    state.cartgoods.forEach((itme) => {
+      itme.goods.goodsnums = 0
+    })
     state.cartgoods.splice(0, state.cartgoods.length)
   }
 }

@@ -1,19 +1,9 @@
 export default {
-  addNum ({
-    commit
+  addNum ({commit}, goods) {
+    commit('addNum', goods)
   },
-  goods
-  ) {
-    commit('addNum',
-      goods)
-  },
-  jianNum ({
-    commit
-  },
-  goods
-  ) {
-    commit('jianNum',
-      goods)
+  jianNum ({commit}, goods) {
+    commit('jianNum', goods)
   },
   clearall ({
     commit

@@ -173,7 +173,6 @@
 import BScroll from 'better-scroll'
 import cartcontrol from './cartcontrol'
 import shopcart from './shopcart'
-import { mapState } from 'vuex'
 export default {
   props: ['typegoods', 'typeList'],
   data () {
@@ -182,9 +181,6 @@ export default {
       isactive: 0,
       scroll: ''
     }
-  },
-  computed: {
-    ...mapState(['cartgoods'])
   },
   components: {
     cartcontrol,
