@@ -14,5 +14,12 @@ export default {
       money = money + (itme.goods.price * itme.goods.goodsnums)
     })
     return money
+  },
+  allgoodsnum (state) {
+    var num = 0
+    state.cartgoods.forEach((itme) => {
+      num = num + itme.goods.goodsnums
+    })
+    return num
   }
 }

@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="bigcart">
-      <div class="cart" @click="showgoods()">
-        <div class="shppingborder">
+      <div class="cart" @click="showgoods()" >
+        <div class="shppingborder" :class="{heartBeat:addclass > 0}">
           <div class="shppingicon">
+            <span>{{allgoodsnum}}</span>
           </div>
         </div>
         <div class="bottom-money" :class="{addwidth:allmoney > 0}">
@@ -55,8 +56,8 @@ export default {
     }
   },
   computed: {
-    ...mapState(['cartgoods', 'isshow']),
-    ...mapGetters(['isshow', 'allmoney'])
+    ...mapState(['cartgoods', 'isshow', 'addclass']),
+    ...mapGetters(['isshow', 'allmoney', 'allgoodsnum'])
   },
   methods: {
     ...mapActions(['clearall', 'addNum']),
@@ -83,6 +84,35 @@ export default {
 </script>
 
 <style scoped>
+/* 动画 */
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.3);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.3);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
+.heartBeat {
+  animation-name: heartBeat;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+/*  */
 .gobj {
   font-size: 0.1rem;
 }
@@ -129,6 +159,7 @@ export default {
   background-color: rgba(161, 148, 148, 0.5);
   border-radius: 50%;
   margin: 0.1rem;
+  color: white
 }
 .bottom-money {
   font-size: 0.5rem;

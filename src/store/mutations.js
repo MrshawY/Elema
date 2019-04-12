@@ -12,6 +12,10 @@ export default {
       goods.goods.goodsnums++
       state.cartgoods.push(goods)
     }
+    state.addclass++
+    setTimeout(() => {
+      state.addclass = 0
+    }, 100)
   },
   // 减少mutation
   jianNum (state, goods) {
@@ -24,6 +28,10 @@ export default {
         }
       }
     })
+    state.addclass++
+    setTimeout(() => {
+      state.addclass = 0
+    }, 100)
   },
   clearall (state) {
     state.cartgoods.forEach((itme) => {
