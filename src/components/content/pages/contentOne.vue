@@ -7,7 +7,7 @@
             <span>
               {{item.title}}
             </span>
-            <div class="indexnum" v-show="groupsellnum[index]> 0">{{groupsellnum[index]}}</div>
+            <div class="indexnum" v-show="uphotsel[index]> 0">{{uphotsel[index]}}</div>
           </li>
         </ul>
       </div>
@@ -200,18 +200,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['hotsetmeal', 'hotsell'])
-    // uphotsel () {
-    //   this.groupsellnum[0] = this.hotsell
-    //   this.groupsellnum[1] = this.hotsetmeal
-    //   return this.groupsellnum
-    // }
-  },
-  watch: {
-    groupsellnum (newval, oldval) {
-      this.groupsellnum[0] = this.hotsell
-      this.groupsellnum[1] = this.hotsetmeal
-      return this.groupsellnum
+    ...mapGetters(['hotsetmeal', 'hotsell']),
+    uphotsel () {
+      return this.upgroupsellnum()
     }
   },
   components: {
@@ -222,11 +213,17 @@ export default {
     tocolor (index) {
       this.isactive = index
       this.scroll.scrollToElement(this.$refs[index][0])
+    },
+    upgroupsellnum () {
+      this.groupsellnum[0] = this.hotsell
+      this.groupsellnum[1] = this.hotsetmeal
+      console.log(this.groupsellnum)
+      return this.groupsellnum
     }
   },
   mounted () {
     let container = this.$refs['container']
-    this.scroll = new BScroll(container, { click: true })// 让使用div包裹的地方能够点击
+    this.scroll = new BScroll(container, { click: true }) // 让使用div包裹的地方能够点击
   }
 }
 </script>
