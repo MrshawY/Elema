@@ -7,6 +7,7 @@
             <span>
               {{item.title}}
             </span>
+            <div class="indexnum" v-show="groupsellnum[index]> 0">{{groupsellnum[index]}}</div>
           </li>
         </ul>
       </div>
@@ -53,6 +54,7 @@
   text-align: center;
   overflow: hidden;
   border-bottom: 1px solid #e5e2e8;
+  position: relative;
 }
 /* 点击背景颜色切换 */
 .tocolor {
@@ -86,6 +88,19 @@
 }
 .li-content::-webkit-scrollbar {
   display: none;
+}
+.indexnum {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background-color: rgb(238, 36, 36);
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  font-size: 0.2rem;
+  line-height: 0.35rem;
+  text-align: center;
+  color: white;
 }
 /* 右边的内容 */
 .content-title {
@@ -173,13 +188,30 @@
 import BScroll from 'better-scroll'
 import cartcontrol from './cartcontrol'
 import shopcart from './shopcart'
+import { mapGetters } from 'vuex'
 export default {
   props: ['typegoods', 'typeList'],
   data () {
     return {
       istocolor: true,
       isactive: 0,
-      scroll: ''
+      scroll: '',
+      groupsellnum: []
+    }
+  },
+  computed: {
+    ...mapGetters(['hotsetmeal', 'hotsell'])
+    // uphotsel () {
+    //   this.groupsellnum[0] = this.hotsell
+    //   this.groupsellnum[1] = this.hotsetmeal
+    //   return this.groupsellnum
+    // }
+  },
+  watch: {
+    groupsellnum (newval, oldval) {
+      this.groupsellnum[0] = this.hotsell
+      this.groupsellnum[1] = this.hotsetmeal
+      return this.groupsellnum
     }
   },
   components: {

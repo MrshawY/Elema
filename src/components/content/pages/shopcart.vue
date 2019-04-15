@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="bigcart">
-      <div class="cart" @click="showgoods()" >
+      <div class="cart" @click="showgoods()">
         <div class="shppingborder" :class="{heartBeat:addclass > 0}">
           <div class="shppingicon">
-            <span>{{allgoodsnum}}</span>
           </div>
+          <span class="allgoodsnum" v-show="allgoodsnum > 0">{{allgoodsnum}}</span>
         </div>
         <div class="bottom-money" :class="{addwidth:allmoney > 0}">
           ￥{{allmoney}}
@@ -38,7 +38,7 @@
           <div class="glist" v-for="(n,i) in cartgoods" :key="i">
             <div class="gname">{{n.goods.goodsname}}</div>
             <div class="gprice">￥{{n.goods.price}}</div>
-             <cartcontrol :good="n.goods" :goodnums="n.goods.goodsnums"></cartcontrol>
+            <cartcontrol :good="n.goods" :goodnums="n.goods.goodsnums"></cartcontrol>
           </div>
         </div>
       </div>
@@ -152,6 +152,20 @@ export default {
   margin-left: 0.2rem;
   margin-top: -0.3rem;
   overflow: hidden;
+  position: relative;
+}
+.allgoodsnum {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background-color: rgb(238, 36, 36);
+  position: absolute;
+  right: 0.2rem;
+  top: 0.1rem;
+  font-size: 0.2rem;
+  line-height: .35rem;
+  text-align: center;
+  color: white;
 }
 .shppingicon {
   width: 1rem;
@@ -159,7 +173,7 @@ export default {
   background-color: rgba(161, 148, 148, 0.5);
   border-radius: 50%;
   margin: 0.1rem;
-  color: white
+  color: white;
 }
 .bottom-money {
   font-size: 0.5rem;

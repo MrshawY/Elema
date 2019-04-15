@@ -15,10 +15,31 @@ export default {
     })
     return money
   },
+  // 计算总数
   allgoodsnum (state) {
     var num = 0
     state.cartgoods.forEach((itme) => {
       num = num + itme.goods.goodsnums
+    })
+    return num
+  },
+  // 热销榜
+  hotsell (state) {
+    var num = 0
+    state.cartgoods.forEach((itme) => {
+      if (itme.goods.titel === '热销榜') {
+        num = num + itme.goods.goodsnums
+      }
+    })
+    return num
+  },
+  // 单人热销套餐
+  hotsetmeal (state) {
+    var num = 0
+    state.cartgoods.forEach((itme) => {
+      if (itme.goods.titel === '单人热销套餐') {
+        num = num + itme.goods.goodsnums
+      }
     })
     return num
   }

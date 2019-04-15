@@ -1,9 +1,11 @@
 <template>
   <div>
     <button @click="tochange">切换</button>
-      <transition>
-        <div v-show="ishow">这</div>
-      </transition>
+    <transition>
+      <div v-show="ishow">这</div>
+    </transition>
+    <div>{{go}}</div>
+    <div>{{gos}}</div>
   </div>
 </template>
 <script>
@@ -13,9 +15,17 @@ export default {
       ishow: true
     }
   },
+  computed: {
+    gos () {
+      return '???'
+    }
+  },
   methods: {
     tochange () {
       this.ishow = !this.ishow
+    },
+    go () {
+      return '???'
     }
   }
 }
