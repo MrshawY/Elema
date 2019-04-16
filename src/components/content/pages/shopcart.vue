@@ -65,7 +65,6 @@ export default {
       if (this.cartgoods.length < 0) {
         alert('您的购物车没有商品')
       } else {
-        console.log(this.isshow)
         this.shows = !this.shows
       }
     },
