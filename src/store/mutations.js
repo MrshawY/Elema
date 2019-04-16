@@ -23,8 +23,7 @@ export default {
       if (itme.goods.goodsname === goods.goods.goodsname) {
         itme.goods.goodsnums--
         if (itme.goods.goodsnums <= 0) {
-          console.log(index)
-          state.cartgoods.splice(index, 1)
+          itme.goods.goodsnums = 0
         }
       }
     })
@@ -38,5 +37,6 @@ export default {
       itme.goods.goodsnums = 0
     })
     state.cartgoods.splice(0, state.cartgoods.length)
+    state.gorupsell = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   }
 }

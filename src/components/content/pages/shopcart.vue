@@ -22,7 +22,7 @@
       </div>
     </div>
     <transition>
-      <div class="goodlist" v-show="isshow && isshows">
+      <div class="goodlist" v-show="isshow && shows">
         <div class="goodlist-title">
           <div class="goodschicked">
             已选商品
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="bigul">
-          <div class="glist" v-for="(n,i) in cartgoods" :key="i">
+          <div class="glist" v-for="(n,i) in cartgoods" :key="i" v-show="n.goods.goodsnums > 0">
             <div class="gname">{{n.goods.goodsname}}</div>
             <div class="gprice">￥{{n.goods.price}}</div>
             <cartcontrol :good="n.goods" :goodnums="n.goods.goodsnums"></cartcontrol>
@@ -52,25 +52,21 @@ export default {
   data () {
     return {
       finaMoney: '0',
-      isshows: true
+      shows: true
     }
   },
   computed: {
-    ...mapState(['cartgoods', 'isshow', 'addclass']),
+    ...mapState(['cartgoods', 'addclass']),
     ...mapGetters(['isshow', 'allmoney', 'allgoodsnum'])
   },
   methods: {
-    ...mapActions(['clearall', 'addNum']),
+    ...mapActions(['clearall']),
     showgoods () {
       if (this.cartgoods.length < 0) {
         alert('您的购物车没有商品')
       } else {
-        this.cartgoods.forEach((itme, index) => {
-          console.log(index)
-          console.log(itme)
-        })
-        // console.log(this.cartgoods)
-        this.isshows = !this.isshows
+        console.log(this.isshow)
+        this.shows = !this.shows
       }
     },
     ok () {

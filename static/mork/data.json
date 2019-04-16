@@ -1,233 +1,258 @@
 {
-  "data" :[{
-  "typeList": [
+  "data": [
     {
-    "id": "01",
-    "title": "热销榜",
-    "num":"0"
-  },
-  {
-    "id": "02",
-    "title": "单人热销套餐",
-    "num":"0"
-  },
-  {
-    "id": "03",
-    "title": "特色粥品",
-    "num":"0"
-  },
-  {
-    "id": "04",
-    "title": "精选热菜",
-    "num":"0"
-  },
-  {
-    "id": "05",
-    "title": "爽口凉菜",
-    "num":"0"
-  },
-  {
-    "id": "06",
-    "title": "半成品",
-    "num":"0"
-  },
-  {
-    "id": "07",
-    "title": "饭类",
-    "num":"0"
-  },
-  {
-    "id": "08",
-    "title": "菜类",
-    "num":"0"
-  },
-  {
-    "id": "09",
-    "title": "面类",
-    "num":"0"
-  },
-  {
-    "id": "10",
-    "title": "其他",
-    "num":"0"
-  }
-],
-  "typegoods": [
-    {
-      "id": "01",
-      "titel": "热销产品",
-      "goodslist": [
+      "typeList": [
         {
           "id": "01",
-          "titel": "热销榜",
-          "goodsname": "热销产品01",
-          "sellnum": "1123",
-          "abb": "咸粥",
-          "price": "24",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    },
-    {
-      "id": "02",
-      "titel": "单人特色套餐",
-      "goodslist": [
-        {
-          "id": "01",
-          "titel": "单人热销套餐",
-          "goodsname": "单人特色套餐01",
-          "sellnum": "1123",
-          "price": "24",
-          "abb": "咸粥",
-          "oldprice": "￥28",
-          "goodsnums": "0"
+          "title": "热销榜",
+          "num": "0"
         },
         {
           "id": "02",
-          "titel": "单人热销套餐",
-          "goodsname": "单人特色套餐02",
-          "sellnum": "1123",
-          "price": "24",
-          "oldprice": "￥28",
-          "goodsnums": "0"
+          "title": "单人热销套餐",
+          "num": "0"
         },
         {
           "id": "03",
-          "titel": "单人热销套餐",
-          "goodsname": "单人特色套餐03",
-          "sellnum": "1123",
-          "abb": "咸粥",
-          "price": "24",
-          "oldprice": "￥28",
-          "goodsnums": "0"
+          "title": "特色粥品",
+          "num": "0"
+        },
+        {
+          "id": "04",
+          "title": "精选热菜",
+          "num": "0"
+        },
+        {
+          "id": "05",
+          "title": "爽口凉菜",
+          "num": "0"
+        },
+        {
+          "id": "06",
+          "title": "半成品",
+          "num": "0"
+        },
+        {
+          "id": "07",
+          "title": "饭类",
+          "num": "0"
+        },
+        {
+          "id": "08",
+          "title": "菜类",
+          "num": "0"
+        },
+        {
+          "id": "09",
+          "title": "面类",
+          "num": "0"
+        },
+        {
+          "id": "10",
+          "title": "其他",
+          "num": "0"
         }
-      ]
-    },
-    {
-      "id": "03",
-      "titel": "特色粥品",
-      "goodslist": [
+      ],
+      "typegoods": [
         {
           "id": "01",
+          "titel": "热销产品",
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "热销榜",
+              "goodsname": "热销产品01",
+              "sellnum": "1123",
+              "abb": "咸粥",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            },
+            {
+              "id": "02",
+              "titel": "热销榜",
+              "goodsname": "热销产品02",
+              "sellnum": "1123",
+              "abb": "咸粥",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            },
+            {
+              "id": "03",
+              "titel": "热销榜",
+              "goodsname": "热销产品03",
+              "sellnum": "1123",
+              "abb": "咸粥",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
+        {
+          "id": "02",
+          "titel": "单人特色套餐",
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "单人热销套餐",
+              "goodsname": "单人特色套餐01",
+              "sellnum": "1123",
+              "price": "24",
+              "abb": "咸粥",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            },
+            {
+              "id": "02",
+              "titel": "单人热销套餐",
+              "goodsname": "单人特色套餐02",
+              "sellnum": "1123",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            },
+            {
+              "id": "03",
+              "titel": "单人热销套餐",
+              "goodsname": "单人特色套餐03",
+              "sellnum": "1123",
+              "abb": "咸粥",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
+        {
+          "id": "03",
           "titel": "特色粥品",
-          "goodsname": "特色粥品01",
-          "sellnum": "1123",
-          "price": "24",
-          "abb": " ",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    },
-    {
-      "id": "04",
-      "titel": "精选热菜",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "特色粥品",
+              "goodsname": "特色粥品01",
+              "sellnum": "1123",
+              "price": "24",
+              "abb": " ",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "04",
           "titel": "精选热菜",
-          "goodsname": "精选热菜01",
-          "sellnum": "1123",
-          "price": "24",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    },
-    {
-      "id": "05",
-      "titel": "爽口凉菜",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "精选热菜",
+              "goodsname": "精选热菜01",
+              "sellnum": "1123",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "05",
           "titel": "爽口凉菜",
-          "goodsname": "爽口凉菜01",
-          "sellnum": "1123",
-          "price": "24",
-          "abb": " ",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    },
-    {
-      "id": "06",
-      "titel": "半成品",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "爽口凉菜",
+              "goodsname": "爽口凉菜01",
+              "sellnum": "1123",
+              "price": "24",
+              "abb": " ",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "06",
           "titel": "半成品",
-          "goodsname": "半成品01",
-          "sellnum": "1123",
-          "price": "24",
-          "abb": " ",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    }, {
-      "id": "07",
-      "titel": "饭类",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "半成品",
+              "goodsname": "半成品01",
+              "sellnum": "1123",
+              "price": "24",
+              "abb": " ",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "07",
           "titel": "饭类",
-          "goodsname": "饭类01",
-          "sellnum": "1123",
-          "abb": " ",
-          "price": "24",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    }, {
-      "id": "08",
-      "titel": "菜类",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "饭类",
+              "goodsname": "饭类01",
+              "sellnum": "1123",
+              "abb": " ",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "08",
           "titel": "菜类",
-          "goodsname": "菜类01",
-          "sellnum": "1123",
-          "abb": " ",
-          "price": "24",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    }, {
-      "id": "09",
-      "titel": "面类",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "菜类",
+              "goodsname": "菜类01",
+              "sellnum": "1123",
+              "abb": " ",
+              "price": "24",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "09",
           "titel": "面类",
-          "goodsname": "面类01",
-          "sellnum": "1123",
-          "price": "24",
-          "abb": " ",
-          "oldprice": "￥28",
-          "goodsnums": "0"
-        }
-      ]
-    }, {
-      "id": "10",
-      "titel": "其他",
-      "goodslist": [
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "面类",
+              "goodsname": "面类01",
+              "sellnum": "1123",
+              "price": "24",
+              "abb": " ",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
+        },
         {
-          "id": "01",
+          "id": "10",
           "titel": "其他",
-          "goodsname": "其他01",
-          "sellnum": "1123",
-          "price": "24",
-          "abb": " ",
-          "oldprice": "￥28",
-          "goodsnums": "0"
+          "goodslist": [
+            {
+              "id": "01",
+              "titel": "其他",
+              "goodsname": "其他01",
+              "sellnum": "1123",
+              "price": "24",
+              "abb": " ",
+              "oldprice": "￥28",
+              "goodsnums": "0"
+            }
+          ]
         }
       ]
     }
-  ]
-}
   ]
 }

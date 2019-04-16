@@ -7,7 +7,7 @@
             <span>
               {{item.title}}
             </span>
-            <div class="indexnum" v-show="uphotsel[index]> 0">{{uphotsel[index]}}</div>
+            <div class="indexnum" v-show="gorupsells[index]> 0">{{gorupsells[index]}}</div>
           </li>
         </ul>
       </div>
@@ -200,10 +200,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['hotsetmeal', 'hotsell']),
-    uphotsel () {
-      return this.upgroupsellnum()
-    }
+    ...mapGetters(['hotsetmeal', 'hotsell', 'gorupsells'])
+    // update () {
+    //   return this.upgroupdata()
+    // }
   },
   components: {
     cartcontrol,
@@ -213,13 +213,12 @@ export default {
     tocolor (index) {
       this.isactive = index
       this.scroll.scrollToElement(this.$refs[index][0])
-    },
-    upgroupsellnum () {
-      this.groupsellnum[0] = this.hotsell
-      this.groupsellnum[1] = this.hotsetmeal
-      console.log(this.groupsellnum)
-      return this.groupsellnum
     }
+    // upgroupdata () {
+    //   this.groupsellnum[0] = this.hotsell
+    //   this.groupsellnum[1] = this.hotsetmeal
+    //   return this.groupsellnum
+    // }
   },
   mounted () {
     let container = this.$refs['container']

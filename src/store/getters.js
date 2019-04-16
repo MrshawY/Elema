@@ -2,7 +2,15 @@ export default {
   // 显示购物车
   isshow (state) {
     if (state.cartgoods.length > 0) {
-      return true
+      var num = 0
+      state.cartgoods.forEach((itme) => {
+        num = num + itme.goods.goodsnums
+      })
+      if (num > 0) {
+        return true
+      } else {
+        return false
+      }
     } else {
       return false
     }
@@ -42,5 +50,28 @@ export default {
       }
     })
     return num
+  },
+  // 分类销售数组
+  gorupsells (state) {
+    var num = 0
+    var nums = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    state.cartgoods.forEach((itme, index) => {
+      if (itme.goods.titel === '热销榜') {
+        num = itme.goods.goodsnums
+        nums[0] = nums[0] + num
+        state.gorupsell[0] = nums[0]
+      } else if (itme.goods.titel === '单人热销套餐') {
+        num = itme.goods.goodsnums
+        nums[1] = nums[1] + num
+        state.gorupsell[1] = nums[1]
+      } else if (itme.goods.titel === '特色粥品') {
+        num = itme.goods.goodsnums
+        nums[2] = nums[2] + num
+        state.gorupsell[2] = nums[2]
+      }
+    })
+    console.log(nums)
+    console.log(state.gorupsell)
+    return state.gorupsell
   }
 }
