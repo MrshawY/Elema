@@ -32,25 +32,25 @@ export default {
     return num
   },
   // 热销榜
-  hotsell (state) {
-    var num = 0
-    state.cartgoods.forEach((itme) => {
-      if (itme.goods.titel === '热销榜') {
-        num = num + itme.goods.goodsnums
-      }
-    })
-    return num
-  },
+  // hotsell (state) {
+  //   var num = 0
+  //   state.cartgoods.forEach((itme) => {
+  //     if (itme.goods.titel === '热销榜') {
+  //       num = num + itme.goods.goodsnums
+  //     }
+  //   })
+  //   return num
+  // },
   // 单人热销套餐
-  hotsetmeal (state) {
-    var num = 0
-    state.cartgoods.forEach((itme) => {
-      if (itme.goods.titel === '单人热销套餐') {
-        num = num + itme.goods.goodsnums
-      }
-    })
-    return num
-  },
+  // hotsetmeal (state) {
+  //   var num = 0
+  //   state.cartgoods.forEach((itme) => {
+  //     if (itme.goods.titel === '单人热销套餐') {
+  //       num = num + itme.goods.goodsnums
+  //     }
+  //   })
+  //   return num
+  // },
   // 分类销售数组
   gorupsells (state) {
     var num = 0
@@ -70,8 +70,6 @@ export default {
         state.gorupsell[2] = nums[2]
       }
     })
-    console.log(nums)
-    console.log(state.gorupsell)
     return state.gorupsell
   }
 }

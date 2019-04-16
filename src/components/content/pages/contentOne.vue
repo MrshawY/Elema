@@ -195,12 +195,13 @@ export default {
     return {
       istocolor: true,
       isactive: 0,
-      scroll: '',
-      groupsellnum: []
+      scroll: ''
+      // groupsellnum: []
     }
   },
   computed: {
-    ...mapGetters(['hotsetmeal', 'hotsell', 'gorupsells'])
+    ...mapGetters(['gorupsells'])
+    // ...mapGetters(['hotsetmeal', 'hotsell', 'gorupsells'])
     // update () {
     //   return this.upgroupdata()
     // }

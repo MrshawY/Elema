@@ -22,10 +22,6 @@
 </style>
 <script>
 export default {
-  props: ['typegoods', 'typeList'],
-  mounted () {
-    console.log('tag里')
-    console.log(this.typegoods)
-  }
+  props: ['typegoods', 'typeList']
 }
 </script>
