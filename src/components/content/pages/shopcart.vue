@@ -133,7 +133,7 @@ export default {
 .bigcart {
   position: absolute;
   z-index: 50;
-  background-color: #3c3434;
+  background-color: rgba(12, 2, 2, 1);
 }
 .cart {
   display: flex;
