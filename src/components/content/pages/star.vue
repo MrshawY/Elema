@@ -9,8 +9,10 @@
 </template>
 <script>
 export default {
+  props: ['servicesorce', 'starnum'],
   data () {
     return {
+      servicesorces: 0,
       imglist: [{
         id: '0',
         imgUrl: require('../../../../resource/img/star36_off@2x.png')
@@ -40,13 +42,26 @@ export default {
       for (var i = 0; i <= index; i++) {
         this.imglist[i].imgUrl = require('../../../../resource/img/star36_on@2x.png')
       }
+      this.servicesorces = 2.0 * (parseInt(index) + 1)
+      if (this.servicesorce === 1) {
+        this.$emit('showsocre1', this.servicesorces)
+      } else {
+        this.$emit('showsocre2', this.servicesorces)
+      }
+    },
+    lightens () {
+      for (var i = 0; i <= this.starnum; i++) {
+        this.imglist[i].imgUrl = require('../../../../resource/img/star36_on@2x.png')
+      }
     }
+  },
+  mounted () {
+    this.lightens()
   }
 }
 </script>
 <style scoped>
 .staricon {
-  margin-left: 0.3rem;
   margin-right: 0.1rem;
 }
 ul {

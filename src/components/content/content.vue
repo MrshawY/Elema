@@ -3,8 +3,8 @@
     <!-- 导航栏 -->
     <div class="linkdiv">
       <div :class="{showcolor: oneshow}" @click="todiv(1)">商家</div>
-      <div :class="{showcolor: twoshow}" @click="todiv(2)">详情</div>
-      <div :class="{showcolor: threeshow}" @click="todiv(3)">评论</div>
+      <div :class="{showcolor: threeshow}" @click="todiv(3)">详情</div>
+      <div :class="{showcolor: twoshow}" @click="todiv(2)">评论</div>
     </div>
     <!-- 导航显示对应的内容 -->
     <div class="isshow" :class="{show:oneshow}">
