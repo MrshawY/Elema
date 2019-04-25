@@ -17,9 +17,9 @@
       </div>
     </div>
     <div class="filter-box">
-      <div class="btn-all" @click="allcomment">全部{{this.allcommentnum}}</div>
-      <div class="btn-good" @click="goodnums">满意{{this.goodnum}}</div>
-      <div class="btn-nogood" @click="nogoodnums">不满意{{this.nogoodnum}}</div>
+      <div class="btn-all" @click="allcomment" :class="iscolor == 1 ? 'fontcolor':''">全部{{this.allcommentnum}}</div>
+      <div class="btn-good" @click="goodnums" :class="iscolor == 2 ? 'fontcolor':''">满意{{this.goodnum}}</div>
+      <div class="btn-nogood" @click="nogoodnums" :class="iscolor == 3 ? 'fontcolor':''">不满意{{this.nogoodnum}}</div>
     </div>
     <div class="Tis-box">
       <div>只看有内容的评价</div>
@@ -58,8 +58,8 @@ export default {
       servicesorce1: 0,
       servicesorce2: 0,
       commentLists: [],
-      copycommentList: []
-
+      copycommentList: [],
+      iscolor: 1
     }
   },
   components: {
@@ -86,6 +86,7 @@ export default {
     },
     allcomment () {
       this.commentLists = this.copycommentList
+      this.iscolor = 1
     },
     goodnums () {
       var goodnumlist = []
@@ -95,6 +96,7 @@ export default {
         }
       })
       this.commentLists = goodnumlist
+      this.iscolor = 2
     },
     nogoodnums () {
       var goodnumlist = []
@@ -104,6 +106,7 @@ export default {
         }
       })
       this.commentLists = goodnumlist
+      this.iscolor = 3
     }
   }
 }
@@ -277,7 +280,7 @@ export default {
   margin-bottom: 0.15rem;
   width: 5rem;
   line-height: 1rem;
-  min-height: .5rem;
+  min-height: 0.5rem;
 }
 .isgood {
   width: 0.4rem;
@@ -286,16 +289,19 @@ export default {
 }
 .goodsname {
   font-size: 0.3rem;
-    width: 1.5rem;
-    height: 0.4rem;
-    border: 1px solid rgb(161, 154, 154);
-    line-height: 0.4rem;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: rgb(175, 166, 166);
-    margin-left: .1rem;
-    margin-bottom: .1rem;
+  width: 1.5rem;
+  height: 0.4rem;
+  border: 1px solid rgb(161, 154, 154);
+  line-height: 0.4rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgb(175, 166, 166);
+  margin-left: 0.1rem;
+  margin-bottom: 0.1rem;
+}
+.fontcolor {
+  color: rgb(243, 34, 34);
 }
 </style>
