@@ -47,7 +47,7 @@
 </template>
 <script>
 import { mapState, mapActions, mapGetters } from 'vuex'
-import cartcontrol from './cartcontrol'
+import cartcontrol from '../content/pages/cartcontrol'
 export default {
   data () {
     return {

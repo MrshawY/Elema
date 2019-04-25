@@ -34,9 +34,6 @@
           </div>
         </div>
       </div>
-      <div class="contentone-bottom">
-        <shopcart></shopcart>
-      </div>
     </div>
   </div>
 </template>
@@ -176,18 +173,11 @@
   top: 0;
   bottom: 0;
 }
-/*底部购物车页面*/
-.contentone-bottom {
-  width: 100%;
-  height: 1.3rem;
-  position: fixed;
-  bottom: 0;
-}
 </style>
 <script>
 import BScroll from 'better-scroll'
 import cartcontrol from './cartcontrol'
-import shopcart from './shopcart'
+
 import { mapGetters } from 'vuex'
 export default {
   props: ['typegoods', 'typeList'],
@@ -196,30 +186,19 @@ export default {
       istocolor: true,
       isactive: 0,
       scroll: ''
-      // groupsellnum: []
     }
   },
   computed: {
     ...mapGetters(['gorupsells'])
-    // ...mapGetters(['hotsetmeal', 'hotsell', 'gorupsells'])
-    // update () {
-    //   return this.upgroupdata()
-    // }
   },
   components: {
-    cartcontrol,
-    shopcart
+    cartcontrol
   },
   methods: {
     tocolor (index) {
       this.isactive = index
       this.scroll.scrollToElement(this.$refs[index][0])
     }
-    // upgroupdata () {
-    //   this.groupsellnum[0] = this.hotsell
-    //   this.groupsellnum[1] = this.hotsetmeal
-    //   return this.groupsellnum
-    // }
   },
   mounted () {
     let container = this.$refs['container']

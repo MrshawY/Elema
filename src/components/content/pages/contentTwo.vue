@@ -25,7 +25,7 @@
       <div>只看有内容的评价</div>
     </div>
     <div class="comment-box">
-      <div class="comment-itme" v-for="itme in commentList" :key="itme.id">
+      <div class="comment-itme" v-for="itme in commentLists" :key="itme.id">
         <div class="itme-headphone">
           <img src="" alt="">
         </div>
@@ -50,69 +50,16 @@
 import { mapState } from 'vuex'
 import star from './star'
 export default {
+  props: ['commentList'],
   data () {
     return {
       isone: 1,
       istwo: 2,
       servicesorce1: 0,
       servicesorce2: 0,
-      commentList: [
-        {
-          id: '1',
-          imgUrl: '',
-          commenttype: '0', // 是否是好评或者差评 0代表好评 1代表差评
-          starnum: '3',
-          name: '聚***家',
-          runtime: '80分钟送达',
-          commenttime: '2017-10-03',
-          content: '油条凉了，而且没有酱75分钟才到，很慢，送餐员太对不错，但毕竟好晚了',
-          shoppinglist: [
-            {
-              id: '1',
-              name: '超级大的虎皮尖椒'
-            }, {
-              id: '2',
-              name: '超级大的虎皮尖椒'
-            }
-          ]
-        }, {
-          id: '2',
-          imgUrl: '',
-          commenttype: '1',
-          starnum: '2',
-          name: '聚***家',
-          runtime: '80分钟送达',
-          commenttime: '2017-11-04',
-          content: '油条凉了，而且没有酱75分钟才到，很慢，送餐员太对不错，但毕竟好晚了,油条凉了，而且没有酱75分钟才到，很慢，送餐员太对不错，但毕竟好晚了',
-          shoppinglist: [
-            {
-              id: '1',
-              name: '超级大的虎皮尖椒'
-            }, {
-              id: '2',
-              name: '超级大的虎皮尖椒'
-            }
-          ]
-        }, {
-          id: '3',
-          imgUrl: '',
-          commenttype: '1',
-          starnum: '4',
-          name: '王***',
-          runtime: '75分钟送达',
-          commenttime: '2019-04-30',
-          content: '油条凉了，而且没有酱75分钟才到，很慢，送餐员太对不错，但毕竟好晚了,油条凉了，而且没有酱75分钟才到，很慢，送餐员太对不错，但毕竟好晚了',
-          shoppinglist: [
-            {
-              id: '1',
-              name: '超级大的虎皮尖椒'
-            }, {
-              id: '2',
-              name: '超级大的虎皮尖椒'
-            }
-          ]
-        }
-      ]
+      commentLists: [],
+      copycommentList: []
+
     }
   },
   components: {
@@ -124,6 +71,12 @@ export default {
       return (this.servicesorce1 + this.servicesorce2) / 2
     }
   },
+  watch: {
+    commentList (newval) {
+      this.commentLists = newval
+      this.copycommentList = this.commentLists
+    }
+  },
   methods: {
     getsorce1 (data) {
       this.servicesorce1 = data
@@ -132,21 +85,37 @@ export default {
       this.servicesorce2 = data
     },
     allcomment () {
-
+      this.commentLists = this.copycommentList
     },
     goodnums () {
-
+      var goodnumlist = []
+      this.copycommentList.forEach((itme) => {
+        if (parseInt(itme.commenttype) === 0) {
+          goodnumlist.push(itme)
+        }
+      })
+      this.commentLists = goodnumlist
     },
     nogoodnums () {
-
+      var goodnumlist = []
+      this.copycommentList.forEach((itme) => {
+        if (parseInt(itme.commenttype) === 1) {
+          goodnumlist.push(itme)
+        }
+      })
+      this.commentLists = goodnumlist
     }
   }
-
 }
 </script>
 <style scoped>
 .comment {
   background-color: rgb(233, 226, 226);
+  height: 8rem;
+  overflow-y: auto;
+}
+.comment::-webkit-scrollbar {
+  display: none;
 }
 .scoreOS {
   display: flex;
@@ -281,9 +250,9 @@ export default {
   font-size: 0.3rem;
   margin-top: 0.5rem;
 }
-.commentname{
+.commentname {
   float: right;
-  margin-right: .5rem
+  margin-right: 0.5rem;
 }
 .itme-star {
   font-size: 0.5rem;
@@ -304,7 +273,11 @@ export default {
 .itme-goods {
   margin-top: 0.15rem;
   display: flex;
+  flex-wrap: wrap;
   margin-bottom: 0.15rem;
+  width: 5rem;
+  line-height: 1rem;
+  min-height: .5rem;
 }
 .isgood {
   width: 0.4rem;
@@ -313,15 +286,16 @@ export default {
 }
 .goodsname {
   font-size: 0.3rem;
-  width: 2rem;
-  height: 0.4rem;
-  border: 1px solid rgb(161, 154, 154);
-  line-height: 0.4rem;
-  margin-left: 0.2rem;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: rgb(175, 166, 166);
+    width: 1.5rem;
+    height: 0.4rem;
+    border: 1px solid rgb(161, 154, 154);
+    line-height: 0.4rem;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(175, 166, 166);
+    margin-left: .1rem;
+    margin-bottom: .1rem;
 }
 </style>

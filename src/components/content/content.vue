@@ -11,7 +11,7 @@
       <one :typegoods="typegoods" :typeList="typeList"></one>
     </div>
     <div class="isshow" :class="{show:twoshow}">
-      <two></two>
+      <two :commentList="commentLists"></two>
     </div>
     <div class="isshow" :class="{show:threeshow}">
       <three></three>
@@ -19,9 +19,9 @@
   </div>
 </template>
 <style scoped>
-.showcolor{
-  color:rgba(235, 31, 31 ,1);
-  border-bottom:2px solid rgba(235, 31, 31 ,1) ;
+.showcolor {
+  color: rgba(235, 31, 31, 1);
+  border-bottom: 2px solid rgba(235, 31, 31, 1);
 }
 .isshow {
   display: none;
@@ -49,18 +49,24 @@ import one from './pages/contentOne'
 import two from './pages/contentTwo'
 import three from './pages/contentThree'
 export default {
-  props: ['typegoods', 'typeList'],
+  props: ['typegoods', 'typeList', 'commentList'],
   data () {
     return {
       oneshow: true,
       twoshow: false,
-      threeshow: false
+      threeshow: false,
+      commentLists: []
     }
   },
   components: {
     one,
     two,
     three
+  },
+  watch: {
+    commentList (newval) {
+      this.commentLists = newval
+    }
   },
   methods: {
     todiv (index) {
