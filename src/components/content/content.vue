@@ -21,7 +21,6 @@
 <style scoped>
 .showcolor {
   color: rgba(235, 31, 31, 1);
-  border-bottom: 2px solid rgba(235, 31, 31, 1);
 }
 .isshow {
   display: none;
@@ -39,6 +38,7 @@
   font-size: 0.4rem;
   line-height: 1rem;
   text-align: center;
+   border-bottom: 1px solid rgb(197, 184, 184)
 }
 .show {
   display: block;
