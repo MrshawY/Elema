@@ -15,19 +15,19 @@ export default {
       servicesorces: 0,
       imglist: [{
         id: '0',
-        imgUrl: require('../../../../resource/img/star36_off@2x.png')
+        imgUrl: require('../../../../static/img/star36_off@2x.png')
       }, {
         id: '1',
-        imgUrl: require('../../../../resource/img/star36_off@2x.png')
+        imgUrl: require('../../../../static/img/star36_off@2x.png')
       }, {
         id: '2',
-        imgUrl: require('../../../../resource/img/star36_off@2x.png')
+        imgUrl: require('../../../../static/img/star36_off@2x.png')
       }, {
         id: '3',
-        imgUrl: require('../../../../resource/img/star36_off@2x.png')
+        imgUrl: require('../../../../static/img/star36_off@2x.png')
       }, {
         id: '4',
-        imgUrl: require('../../../../resource/img/star36_off@2x.png')
+        imgUrl: require('../../../../static/img/star36_off@2x.png')
       }]
     }
   },
@@ -36,11 +36,11 @@ export default {
     lighten (index) {
       // 恢复原有图片地址
       this.imglist.forEach((itme) => {
-        itme.imgUrl = require('../../../../resource/img/star36_off@2x.png')
+        itme.imgUrl = require('../../../../static/img/star36_off@2x.png')
       })
       // 更改选中图片地址
       for (var i = 0; i <= index; i++) {
-        this.imglist[i].imgUrl = require('../../../../resource/img/star36_on@2x.png')
+        this.imglist[i].imgUrl = require('../../../../static/img/star36_on@2x.png')
       }
       this.servicesorces = 2.0 * (parseInt(index) + 1)
       if (this.servicesorce === 1) {
@@ -51,7 +51,7 @@ export default {
     },
     lightens () {
       for (var i = 0; i <= this.starnum; i++) {
-        this.imglist[i].imgUrl = require('../../../../resource/img/star36_on@2x.png')
+        this.imglist[i].imgUrl = require('../../../../static/img/star36_on@2x.png')
       }
     }
   },

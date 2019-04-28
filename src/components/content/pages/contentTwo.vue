@@ -27,7 +27,7 @@
     <div class="comment-box">
       <div class="comment-itme" v-for="itme in commentLists" :key="itme.id">
         <div class="itme-headphone">
-          <img src="" alt="">
+          <img :src="itme.imgUrl" alt="">
         </div>
         <div class="itme-content">
           <div class="itme-name">
@@ -242,8 +242,12 @@ export default {
   margin-top: 0.3rem;
   margin-left: 0.3rem;
   border-radius: 100%;
-  background-color: blue;
   flex: 0 0 auto;
+}
+.itme-headphone img {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
 }
 .itme-content {
   margin-left: 0.3rem;

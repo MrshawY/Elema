@@ -60,85 +60,13 @@
 <script>
 import star from './star'
 export default {
+  props: ['msglist', 'abbList', 'shopimgList', 'shopmsglist'],
   data () {
     return {
       ischang: false,
       iscollect: '收藏',
-      imgURl: require('../../../../resource/img/collect1.png'),
-      starnum: 3,
-      msglist: [{
-        id: '1',
-        text: '起送价',
-        num: '20',
-        unit: '元'
-      }, {
-        id: '2',
-        text: '商家配送',
-        num: '4',
-        unit: '元'
-      }, {
-        id: '3',
-        text: '平均配送时间',
-        num: '39',
-        unit: '分钟'
-      }],
-      abbList: [{
-        id: '1',
-        imgUrl: require('../../../../resource/img/decrease_3@2x.png'),
-        text: '在线支付满28减5，满50减10'
-      }, {
-        id: '2',
-        imgUrl: require('../../../../resource/img/discount_3@2x.png'),
-        text: '单人精彩赛'
-      }, {
-        id: '3',
-        imgUrl: require('../../../../resource/img/discount_3@2x.png'),
-        text: '清肺雪梨汤8折抢购'
-      }, {
-        id: '4',
-        imgUrl: require('../../../../resource/img/special_3@2x.png'),
-        text: '特价饮品8折抢购'
-      }, {
-        id: '5',
-        imgUrl: require('../../../../resource/img/special_3@2x.png'),
-        text: '单人特色套餐'
-      }, {
-        id: '6',
-        imgUrl: require('../../../../resource/img/invoice_3@2x.png'),
-        text: '该商家支持开发票,请在下单时填写发票抬头'
-      }, {
-        id: '7',
-        imgUrl: require('../../../../resource/img/guarantee_3@2x.png'),
-        text: '已加入“外卖保“计划，食品安全保障'
-      }],
-      shopmsglist: [
-        {
-          id: '1',
-          text: '该商家支持开发票,请在下单时填写发票抬头'
-        }, {
-          id: '2',
-          text: '品类：其他菜系，包子粥类'
-        }, {
-          id: '3',
-          text: '地址:北京市顺义区李桥北京森世达美第二口腔诊所东'
-        }, {
-          id: '4',
-          text: '营业时间：10:00-20:30'
-        }
-      ],
-      shopimgList: [{
-        id: '1',
-        imgUrl: require('../../../../resource/img/shop1.jpeg')
-      }, {
-        id: '2',
-        imgUrl: require('../../../../resource/img/shop2.jpeg')
-      }, {
-        id: '3',
-        imgUrl: require('../../../../resource/img/shop3.jpeg')
-      }, {
-        id: '4',
-        imgUrl: require('../../../../resource/img/shop4.jpeg')
-      }]
+      imgURl: require('../../../../static/img/collect1.png'),
+      starnum: 3
     }
   },
   components: {
@@ -147,11 +75,11 @@ export default {
   methods: {
     changeimg () {
       if (this.ischang) {
-        this.imgURl = require('../../../../resource/img/collect1.png')
+        this.imgURl = require('../../../../static/img/collect1.png')
         this.iscollect = '收藏'
         this.ischang = !this.ischang
       } else {
-        this.imgURl = require('../../../../resource/img/collect2.png')
+        this.imgURl = require('../../../../static/img/collect2.png')
         this.iscollect = ' 已收藏 '
         this.ischang = !this.ischang
       }
@@ -233,7 +161,7 @@ export default {
   border-right: 1px solid rgb(214, 185, 185, 1);
 }
 .shop-msg-one {
-  width: 1.5rem;
+  width: 1.7rem;
   height: 1rem;
   font-size: 0.3rem;
   margin: 0 auto;

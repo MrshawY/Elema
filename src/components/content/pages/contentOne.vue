@@ -19,7 +19,7 @@
                 <div>{{item.titel}}</div>
               </div>
               <div class="content-txt" v-for="(good) in item.goodslist" :key="good.id">
-                <img src="../../../../resource/img/xlx.jpg">
+                <img src="../../../../static/img/xlx.jpg">
                 <div class="title-txt">
                   <p>{{good.goodsname}}</p>
                   <p>{{good.abb}}</p>

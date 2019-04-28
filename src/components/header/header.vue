@@ -9,7 +9,7 @@
       <div>&gt;</div>
     </div>
     <div class="title-gg">
-      <img src="../../../resource/img/brand@2x.png">
+      <img src="/api/img/brand@2x.png">
     </div>
     <div class="title-text">
       粥品香坊(大运村)
@@ -18,7 +18,7 @@
       蜂鸟转送/38分钟送达
     </div>
     <div class="title-jian">
-      <img src="../../../resource/img/decrease_2@2x.png" alt="">
+      <img src="/api/img/decrease_2@2x.png" alt="">
       在线支付满28减5，满50减10
     </div>
     <div class="title-num">

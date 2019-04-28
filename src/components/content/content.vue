@@ -8,13 +8,13 @@
     </div>
     <!-- 导航显示对应的内容 -->
     <div class="isshow" :class="{show:oneshow}">
-      <one :typegoods="typegoods" :typeList="typeList"></one>
+      <one :typegoods="typegoods" :typeList="typeList" ></one>
     </div>
     <div class="isshow" :class="{show:twoshow}">
       <two :commentList="commentLists"></two>
     </div>
     <div class="isshow" :class="{show:threeshow}">
-      <three></three>
+      <three :msglist="msglist" :abbList="abbList" :shopimgList="shopimgList" :shopmsglist="shopmsglist"></three>
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@ import one from './pages/contentOne'
 import two from './pages/contentTwo'
 import three from './pages/contentThree'
 export default {
-  props: ['typegoods', 'typeList', 'commentList'],
+  props: ['typegoods', 'typeList', 'commentList', 'msglist', 'abbList', 'shopimgList', 'shopmsglist'],
   data () {
     return {
       oneshow: true,

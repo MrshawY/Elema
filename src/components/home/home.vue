@@ -1,7 +1,7 @@
 <template>
   <div>
     <Mheader></Mheader>
-    <Mcontent :typegoods="typegoods" :typeList="typeList" :commentList="commentList"></Mcontent>
+    <Mcontent :typegoods="typegoods" :typeList="typeList" :commentList="commentList" :msglist="msglist" :abbList="abbList" :shopimgList="shopimgList" :shopmsglist="shopmsglist"></Mcontent>
     <div class="contentone-bottom">
       <shopcart></shopcart>
     </div>
@@ -16,7 +16,11 @@ export default {
     return {
       typegoods: [],
       typeList: [],
-      commentList: []
+      commentList: [],
+      msglist: [],
+      abbList: [],
+      shopimgList: [],
+      shopmsglist: []
     }
   },
   components: {
@@ -30,6 +34,10 @@ export default {
         this.typegoods = res.data.data[0].typegoods
         this.typeList = res.data.data[0].typeList
         this.commentList = res.data.data[0].commentList
+        this.msglist = res.data.data[0].msglist
+        this.abbList = res.data.data[0].abbList
+        this.shopimgList = res.data.data[0].shopimgList
+        this.shopmsglist = res.data.data[0].shopmsglist
       })
     }
   },
